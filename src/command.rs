@@ -1,7 +1,7 @@
 use crate::program::*;
 
 pub fn launch(program: &mut Program, specifics: Vec<&str>) -> () {
-    
+
 }
 
 pub fn quit(program: &mut Program) -> () {
@@ -41,6 +41,6 @@ pub fn ects(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn error(program: &mut Program) -> () {
-
+pub fn error() -> () {
+    println!("Invalid command. To open the manual, type 'man'.");
 }

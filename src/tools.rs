@@ -69,7 +69,7 @@ pub fn select(input: &String, program: &mut Program) -> () {
         "click" => click(program, specifics), 
         "g" => grade(program, specifics), 
         "e" => ects(program, specifics), 
-        _ => error(program),
+        _ => error(),
     }
 }
 
