@@ -1,7 +1,12 @@
 use crate::program::*;
 
 pub fn launch(program: &mut Program, specifics: Vec<&str>) -> () {
-
+    if specifics[0].to_string() != "Hub" && specifics[0].to_string() != "Record" {
+        println!("Invalid menu. Try again."); 
+    } else {
+        program.choose_menu(specifics[0].to_string()); 
+        program.show_menu();
+    }
 }
 
 pub fn quit(program: &mut Program) -> () {
