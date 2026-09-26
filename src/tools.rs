@@ -1,5 +1,5 @@
 use crate::command::*; 
-
+use crate::program::*;
 
 pub fn man() -> () {
     println!(" ");
@@ -53,46 +53,44 @@ pub fn man() -> () {
     println!(" ");
 }
 
-pub fn select(input: String) -> () {
-    let cmd: String = select_first(&input); 
-    let specifics: Vec<&str> = parse(&input); 
+pub fn select(input: &String, program: &mut Program) -> () {
+    let cmd = select_first(input);
+    let specifics = parse(input);
 
-    let command = cmd.trim(); 
-    match command {
+    match cmd.as_str() {
         "man" => man(), 
-        "s" => launch(specifics), 
-        "q" => quit(), 
-        "c" => create_father(specifics), 
-        "cs" => create_son(specifics), 
-        "del" => delete_father(specifics), 
-        "rm" => delet_son(specifics), 
-        "display" => display(specifics), 
-        "click" => click(specifics), 
-        "g" => grade(specifics), 
-        "e" => ects(specifics), 
-        _ => error(),
+        "s" => launch(program, specifics), 
+        "q" => quit(program), 
+        "c" => create_father(program, specifics), 
+        "cs" => create_son(program, specifics), 
+        "del" => delete_father(program, specifics), 
+        "rm" => delet_son(program, specifics), 
+        "display" => display(program, specifics), 
+        "click" => click(program, specifics), 
+        "g" => grade(program, specifics), 
+        "e" => ects(program, specifics), 
+        _ => error(program),
     }
 }
 
 pub fn select_first(input: &str) -> String {
-    let mut first: String = String::new(); 
-    for i in input.chars() {
-        if i == ' ' {
-            if !first.is_empty() {
-                break;
-            }
-        } else {
-            first.push(i);
-        }
-    }
-    first
-} 
+    input.split_whitespace().next().unwrap_or("").to_string()
+}
 
 pub fn parse(input: &str) -> Vec<&str> {
-    input
-        .split('"')
-        .enumerate()
-        .filter(|(index, _)| index % 2 == 1)
-        .map(|(_, text)| text)
-        .collect()
+    let trimmed = input.trim();
+
+    if trimmed.contains('"') {
+        trimmed
+            .split('"')
+            .enumerate()
+            .filter(|(index, _)| index % 2 == 1)
+            .map(|(_, text)| text)
+            .collect()
+    } else {
+        trimmed
+            .split_whitespace()
+            .skip(1) 
+            .collect()
+    }
 }

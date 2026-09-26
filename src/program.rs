@@ -1,5 +1,10 @@
+use crate::grades::*;
+use crate::todo::*;
 pub struct Program {
-    menu: String,
+    pub menu: String,
+    pub on: u8,
+    pub todo_lists: Vec<ToDoList>,
+    pub years: Vec<Year>,
 }
 
 impl Program {

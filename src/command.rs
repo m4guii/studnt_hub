@@ -1,44 +1,46 @@
+use crate::program::*;
 
-pub fn launch(specifics: Vec<&str>) -> () {
-
-}
-
-pub fn quit(errcode) -> () {
+pub fn launch(program: &mut Program, specifics: Vec<&str>) -> () {
     
 }
 
-pub fn create_father(specifics: Vec<&str>) -> () {
+pub fn quit(program: &mut Program) -> () {
+    println!("Program is closing..."); 
+    program.on = 0; 
+}
+
+pub fn create_father(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn create_son(specifics: Vec<&str>) -> () {
+pub fn create_son(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn delete_father(specifics: Vec<&str>) -> () {
+pub fn delete_father(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn delet_son(specifics: Vec<&str>) -> () {
+pub fn delet_son(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn display(specifics: Vec<&str>) -> () {
+pub fn display(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn click(specifics: Vec<&str>) -> () {
+pub fn click(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn grade(specifics: Vec<&str>) -> () {
+pub fn grade(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn ects(specifics: Vec<&str>) -> () {
+pub fn ects(program: &mut Program, specifics: Vec<&str>) -> () {
 
 }
 
-pub fn error() -> () {
+pub fn error(program: &mut Program) -> () {
 
 }
