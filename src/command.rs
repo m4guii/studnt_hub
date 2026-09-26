@@ -3,8 +3,8 @@ pub fn launch(specifics: Vec<&str>) -> () {
 
 }
 
-pub fn quit() -> () {
-
+pub fn quit(errcode) -> () {
+    
 }
 
 pub fn create_father(specifics: Vec<&str>) -> () {
