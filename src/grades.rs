@@ -1,5 +1,5 @@
 pub struct Year {
-    name: String, 
+    pub name: String, 
     subjects: Vec<Subject>,
     avg: f32, 
 }

@@ -20,4 +20,5 @@ fn main() {
             
         select(&input, &mut program);
     }
+    program.end(); 
 }

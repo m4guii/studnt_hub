@@ -1,5 +1,5 @@
 pub struct ToDoList {
-    title: String,
+    pub title: String,
     done_counter: u8, 
     total_counter: u8,
     todos: Vec<ToDo>,
