@@ -64,7 +64,7 @@ pub fn select(input: &String, program: &mut Program) -> () {
         "c" => create_father(program, specifics), 
         "cs" => create_son(program, specifics), 
         "del" => delete_father(program, specifics), 
-        "rm" => delet_son(program, specifics), 
+        "rm" => delete_son(program, specifics), 
         "display" => display(program, specifics), 
         "click" => click(program, specifics), 
         "g" => grade(program, specifics), 

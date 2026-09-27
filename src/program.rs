@@ -38,12 +38,44 @@ impl Program {
         year
     }
 
+    pub fn create_todo_list(&mut self, todolist: String) -> () {
+        let new_to_do_list = create_todo_list(todolist.to_string()); 
+        self.todo_lists.push(new_to_do_list); 
+        println!("You have created the To Do List '{}'.", todolist); 
+    }
+
+    pub fn create_year(&mut self, year: String) -> () {
+        let new_year = create_year(year.to_string()); 
+        self.years.push(new_year); 
+        println!("You have created the Year '{}'.", year); 
+    }
+
     pub fn delete_year(&mut self, year: String)-> () {
         self.years.retain(|item| item.name != year);
+        println!("You have deleted all instances of the Year '{}'.", year); 
     }
 
     pub fn delete_todo_list(&mut self, todolist: String) -> () {
         self.todo_lists.retain(|item| item.title != todolist);
+        println!("You have deleted all instances of the To Do List '{}'.", todolist); 
+    }
+
+    pub fn delete_todo(&mut self, todolist: String, todo: String) -> () {
+        if let Some(todo_list) = self.find_todo_list(todolist.to_string()) {
+            todo_list.byetodo(&todo);
+            println!("You have deleted all instances of the To Do Item '{}'.", todo);
+        } else {
+            println!("Oops! To Do List '{}' not found.", todolist);
+        }
+    }
+
+    pub fn delete_subject(&mut self, year: String, subject: String) -> () {
+        if let Some(found_year) = self.find_year(year.to_string()) {
+            found_year.byesubject(subject.to_string());
+            println!("You have deleted all instances of the To Do Item '{}'.", subject);
+        } else {
+            println!("Oops! To Do List '{}' not found.", year);
+        }
     }
 
 }

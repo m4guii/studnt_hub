@@ -17,11 +17,13 @@ pub fn create_todo_list(list_name: String) -> ToDoList {
 
 impl ToDoList {
     pub fn add_todo(&mut self, todo: String) -> () {
+        let cpy = todo.clone(); 
         self.todos.push(ToDo {title: todo, done: false,}); 
         self.total_counter += 1; 
+        println!("You have created the To Do Item '{}' in the To Do List '{}'.", cpy, self.title); 
     }
 
-    pub fn delete_todo(&mut self, todo: &str) -> () {
+    pub fn byetodo(&mut self, todo: &str) -> () {
         self.todos.retain(|item| item.title != todo);
         self.total_counter -= 1; 
     }

@@ -32,7 +32,9 @@ pub fn total_avg(years: Vec<Year>) -> f32 {
 impl Year {
 
     pub fn create_subject(&mut self, subject: String, credits: u8, sim: bool, grade: u8) -> () {
+        let cpy = subject.clone(); 
         self.subjects.push(Subject {name: subject, ects: credits, simul: sim, avg: grade}); 
+        println!("You have created the Subject Item '{}' in the Year '{}'.", cpy, self.name); 
     } 
 
     pub fn edit_grade(&mut self, subject: String, grade: u8) -> () {
@@ -51,7 +53,7 @@ impl Year {
         }
     }
 
-    pub fn delete_subject(&mut self, subject: String) -> () {
+    pub fn byesubject(&mut self, subject: String) -> () {
         self.subjects.retain(|item| item.name != subject);
     }
 
