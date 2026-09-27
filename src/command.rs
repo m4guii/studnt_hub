@@ -31,6 +31,10 @@ pub fn create_father(program: &mut Program, specifics: Vec<&str>) -> () {
 }
 
 pub fn create_son(program: &mut Program, specifics: Vec<&str>) -> () {
+    if specifics.len() != 2 {
+        println!("Not enough arguments. Try again."); 
+        return; 
+    }
     if program.menu == "Hub" {
         if let Some(todolist) = program.find_todo_list(specifics[0].to_string()) {
             todolist.add_todo(specifics[1].to_string()); 
