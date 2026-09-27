@@ -37,4 +37,13 @@ impl Program {
         }
         year
     }
+
+    pub fn delete_year(&mut self, year: String)-> () {
+        self.years.retain(|item| item.name != year);
+    }
+
+    pub fn delete_todo_list(&mut self, todolist: String) -> () {
+        self.todo_lists.retain(|item| item.title != todolist);
+    }
+
 }

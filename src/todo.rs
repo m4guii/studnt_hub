@@ -44,10 +44,6 @@ impl ToDoList {
         self.done_counter -= 1; 
     }
 
-    pub fn delete_todo_list(self) -> () {
-        drop(self); 
-    }
-
     pub fn get_progress_list(self) -> f32 {
         if self.total_counter == 0 {
             return 0.0

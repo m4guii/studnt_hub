@@ -55,7 +55,15 @@ pub fn create_son(program: &mut Program, specifics: Vec<&str>) -> () {
 }
 
 pub fn delete_father(program: &mut Program, specifics: Vec<&str>) -> () {
-
+    if program.menu == "Hub" {
+        program.delete_todo_list(specifics[0].to_string());
+        println!("You have deleted the To Do List '{}'.", specifics[0].to_string()); 
+    } else if program.menu == "Record" {
+        program.delete_year(specifics[0].to_string());
+        println!("You have deleted Year '{}'.", specifics[0].to_string()); 
+    } else {
+        println!("Choose a menu first."); 
+    }
 }
 
 pub fn delet_son(program: &mut Program, specifics: Vec<&str>) -> () {

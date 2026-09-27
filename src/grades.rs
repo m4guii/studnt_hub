@@ -30,9 +30,6 @@ pub fn total_avg(years: Vec<Year>) -> f32 {
 }
 
 impl Year {
-    pub fn delete_year(self)-> () {
-        drop(self); 
-    }
 
     pub fn create_subject(&mut self, subject: String, credits: u8, sim: bool, grade: u8) -> () {
         self.subjects.push(Subject {name: subject, ects: credits, simul: sim, avg: grade}); 
