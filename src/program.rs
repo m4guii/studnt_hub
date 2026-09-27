@@ -13,7 +13,7 @@ impl Program {
     }
 
     pub fn show_menu(&mut self) -> () {
-        println!("Current menu is {}", self.menu); 
+        println!("Current menu is {}.", self.menu); 
     }
 
     pub fn end(self) -> () {
