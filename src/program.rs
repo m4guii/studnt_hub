@@ -25,7 +25,7 @@ impl Program {
     pub fn find_todo_list(&mut self, list_name: String) -> Option<&mut ToDoList> {
         let list = self.todo_lists.iter_mut().find(|item| item.title == list_name);
         if list.is_none() {
-            println!("Consider creating the To Do List '{}' first.", list_name);
+            println!("Oops! Suggestion: Consider creating the To Do List '{}' first.", list_name);
         }
         list
     }
@@ -33,7 +33,7 @@ impl Program {
     pub fn find_year(&mut self, year_name: String) -> Option<&mut Year> {
         let year = self.years.iter_mut().find(|item| item.name == year_name);
         if year.is_none() {
-            println!("Consider creating the To Do List '{}' first.", year_name);
+            println!("Oops! Suggestion: Consider creating the Year '{}' first.", year_name);
         }
         year
     }
