@@ -45,10 +45,10 @@ impl Year {
         }
     }
 
-    pub fn edit_sim(&mut self, subject: String, sim: bool) -> () {
+    pub fn check_sim(&mut self, subject: String) -> () {
         for item in &mut self.subjects {
             if item.name == subject {
-                item.simul = sim;
+                item.simul = !item.simul;
             }
         }
     }

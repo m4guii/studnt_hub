@@ -4,6 +4,7 @@ use crate::program::*;
 pub fn man() -> () {
     println!(" ");
     println!("This is the manual. Here are described all commands accepted by this program. <> are the parameters you should add to the command mandatorily.");
+    println!(" ");
     println!("      s <menu> := starts program in 'menu', or changes current menu to 'menu'.");
     println!("      Menu Options: Hub (1), Record (2).");
     println!(" ");
@@ -23,7 +24,7 @@ pub fn man() -> () {
     println!(" ");
     println!("      display <To-Do List / Year> := if on 'Hub' menu, displays 'To-Do-List' content; if on 'Record' menu, displays 'Year' content.");
     println!(" ");
-    println!("      click <To-Do / Subject> := checks / unchecks 'To-Do' if in Hub; if in Record, checks / unchecks Simulation box.");
+    println!("      click <To-Do List / Year> <To-Do / Subject> := checks / unchecks 'To-Do' if in Hub; if in Record, checks / unchecks Simulation box.");
     println!(" ");
     println!("--------------------------------------------------------"); 
     println!(" ");

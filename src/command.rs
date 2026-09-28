@@ -101,7 +101,22 @@ pub fn display(program: &mut Program, specifics: Vec<&str>) -> () {
 }
 
 pub fn click(program: &mut Program, specifics: Vec<&str>) -> () {
+    if specifics.len() != 2 {
+        println!("Oops! Suggestion: Check the number of arguments of this command in 'man'."); 
+        return; 
+    }
 
+    if program.menu == "Hub" {
+        if let Some(todolist) = program.find_todo_list(specifics[0].to_string()) {
+            todolist.check_todo(specifics[1]);
+        }
+    } else if program.menu == "Record" {
+        if let Some(year) = program.find_year(specifics[0].to_string()) {
+            year.check_sim(specifics[1].to_string());
+        }
+    } else {
+        println!("Oops! Suggestion: Choose a menu first."); 
+    }
 }
 
 pub fn grade(program: &mut Program, specifics: Vec<&str>) -> () {

@@ -31,10 +31,11 @@ impl ToDoList {
     pub fn check_todo(&mut self, todo: &str) -> () {
         for item in &mut self.todos {
             if item.title == todo {
-                item.done = true;
+                item.done = !item.done;
+                if item.done == true {self.done_counter += 1;}
+                else {self.done_counter -=1;}
             }
-        }
-        self.done_counter += 1; 
+        } 
     }
 
     pub fn uncheck_todo(&mut self, todo: &str) -> () {
