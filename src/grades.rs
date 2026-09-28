@@ -25,7 +25,7 @@ pub fn total_avg(years: &[Year]) -> f32 {
     }
     if year_count == 0 {
         return 0.0
-    }
+    } 
     average / year_count as f32
 }
 

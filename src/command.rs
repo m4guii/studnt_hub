@@ -109,10 +109,12 @@ pub fn click(program: &mut Program, specifics: Vec<&str>) -> () {
     if program.menu == "Hub" {
         if let Some(todolist) = program.find_todo_list(specifics[0].to_string()) {
             todolist.check_todo(specifics[1]);
+            todolist.print_todo_list();
         }
     } else if program.menu == "Record" {
         if let Some(year) = program.find_year(specifics[0].to_string()) {
             year.check_sim(specifics[1].to_string());
+            year.print_year();
         }
     } else {
         println!("Oops! Suggestion: Choose a menu first."); 
@@ -133,6 +135,7 @@ pub fn grade(program: &mut Program, specifics: Vec<&str>) -> () {
                 Ok(num) => year.edit_grade(specifics[1].to_string(), num),
                 Err(e) => println!("Oops! '{}' is not a valid grade.", e),
             }
+            year.print_year();
         }
     }
 }
@@ -151,6 +154,7 @@ pub fn ects(program: &mut Program, specifics: Vec<&str>) -> () {
                 Ok(num) => year.edit_ects(specifics[1].to_string(), num),
                 Err(e) => println!("Oops! '{}' is not a valid grade.", e),
             }
+            year.print_year();
         }
     }
 }
