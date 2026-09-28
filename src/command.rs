@@ -129,11 +129,32 @@ pub fn grade(program: &mut Program, specifics: Vec<&str>) -> () {
 
     if program.menu != "Record" {
         println!("Oops! Suggestion: Check in which menu you are. This command only works in 'Record'.")
+    } else {
+        if let Some(year) = program.find_year(specifics[0].to_string()) {
+            match specifics[2].parse::<u8>() {
+                Ok(num) => year.edit_grade(specifics[1].to_string(), num),
+                Err(e) => println!("Oops! '{}' is not a valid grade.", e),
+            }
+        }
     }
 }
 
 pub fn ects(program: &mut Program, specifics: Vec<&str>) -> () {
+    if specifics.len() != 3 {
+        println!("Oops! Suggestion: Check the number of arguments of this command in 'man'."); 
+        return; 
+    }
 
+    if program.menu != "Record" {
+        println!("Oops! Suggestion: Check in which menu you are. This command only works in 'Record'.")
+    } else {
+        if let Some(year) = program.find_year(specifics[0].to_string()) {
+            match specifics[2].parse::<u8>() {
+                Ok(num) => year.edit_ects(specifics[1].to_string(), num),
+                Err(e) => println!("Oops! '{}' is not a valid grade.", e),
+            }
+        }
+    }
 }
 
 pub fn error() -> () {
