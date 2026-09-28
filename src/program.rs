@@ -14,6 +14,8 @@ impl Program {
 
     pub fn show_menu(&mut self) -> () {
         println!("Current menu is {}.", self.menu); 
+        if self.menu == "Record" {println!("Course Average: {}", total_avg(&self.years))};
+        if self.menu == "Hub" {println!("Time to be productive!");}; 
     }
 
     pub fn end(self) -> () {

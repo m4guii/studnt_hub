@@ -38,15 +38,6 @@ impl ToDoList {
         } 
     }
 
-    pub fn uncheck_todo(&mut self, todo: &str) -> () {
-        for item in &mut self.todos {
-            if item.title == todo {
-                item.done = false;
-            }
-        }
-        self.done_counter -= 1; 
-    }
-
     pub fn get_progress_list(&self) -> f32 {
         if self.total_counter == 0 {
             return 0.0

@@ -1,6 +1,4 @@
 use crate::program::*;
-use crate::grades::*;
-use crate::todo::*;
 
 pub fn launch(program: &mut Program, specifics: Vec<&str>) -> () {
     if specifics.len() != 1 {

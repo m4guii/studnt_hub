@@ -16,7 +16,7 @@ pub fn create_year(year: String)-> Year {
     Year {name: year, subjects: subs, avg: 0.0}
 }
 
-pub fn total_avg(years: Vec<Year>) -> f32 {
+pub fn total_avg(years: &[Year]) -> f32 {
     let mut average: f32 = 0.0; 
     let mut year_count: u8 = 0; 
     for item in years {
