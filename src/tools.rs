@@ -23,6 +23,7 @@ pub fn man() -> () {
     println!("      cs <To-Do List / Year> <To-Do / Subject> := creates 'To-Do' item in 'To-Do List' if in Hub, if in Record creates 'Subject' in 'Year'.");
     println!(" ");
     println!("      display <To-Do List / Year> := if on 'Hub' menu, displays 'To-Do-List' content; if on 'Record' menu, displays 'Year' content.");
+    println!("      NOTE: 'display' with no arguments displays what menu you are cureently on."); 
     println!(" ");
     println!("      click <To-Do List / Year> <To-Do / Subject> := checks / unchecks 'To-Do' if in Hub; if in Record, checks / unchecks Simulation box.");
     println!(" ");
@@ -36,9 +37,9 @@ pub fn man() -> () {
     println!(" ");
     println!("Record specific commands:"); 
     println!(" ");
-    println!("      g <Subject> <Grade> := changes grade of 'Subject' to 'Grade'.");
+    println!("      g <To-Do List / Year> <Subject> <Grade> := changes grade of 'Subject' to 'Grade'.");
     println!(" ");
-    println!("      e <Subject> <Ects> := changes ects of 'Subject' to 'Ects'.");
+    println!("      e <To-Do List / Year> <Subject> <Ects> := changes ects of 'Subject' to 'Ects'.");
     println!(" ");
     println!("--------------------------------------------------------"); 
     println!(" ");

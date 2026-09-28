@@ -82,19 +82,21 @@ pub fn delete_son(program: &mut Program, specifics: Vec<&str>) -> () {
 }
 
 pub fn display(program: &mut Program, specifics: Vec<&str>) -> () {
-    if specifics.len() != 1 {
+    if specifics.len() != 1 &&  specifics.len() != 0 {
         println!("Oops! Suggestion: Check the number of arguments of this command in 'man'."); 
         return; 
     }
 
-    if program.menu == "Hub" {
+    if specifics.len() == 1 && program.menu == "Hub" {
         if let Some(todolist) = program.find_todo_list(specifics[0].to_string()) {
             todolist.print_todo_list();
         }
-    } else if program.menu == "Record" {
+    } else if specifics.len() == 1 && program.menu == "Record" {
         if let Some(year) = program.find_year(specifics[0].to_string()) {
             year.print_year();
         }
+    } else if specifics.len() == 0 {
+        program.show_menu();
     } else {
         println!("Oops! Suggestion: Choose a menu first."); 
     }
@@ -120,7 +122,14 @@ pub fn click(program: &mut Program, specifics: Vec<&str>) -> () {
 }
 
 pub fn grade(program: &mut Program, specifics: Vec<&str>) -> () {
+    if specifics.len() != 3 {
+        println!("Oops! Suggestion: Check the number of arguments of this command in 'man'."); 
+        return; 
+    }
 
+    if program.menu != "Record" {
+        println!("Oops! Suggestion: Check in which menu you are. This command only works in 'Record'.")
+    }
 }
 
 pub fn ects(program: &mut Program, specifics: Vec<&str>) -> () {
