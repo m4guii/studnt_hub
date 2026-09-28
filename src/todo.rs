@@ -46,20 +46,20 @@ impl ToDoList {
         self.done_counter -= 1; 
     }
 
-    pub fn get_progress_list(self) -> f32 {
+    pub fn get_progress_list(&self) -> f32 {
         if self.total_counter == 0 {
             return 0.0
         }
         (self.done_counter as f32 / self.total_counter as f32) * 100.0
     }
 
-    pub fn print_todo_list(self) -> () {
+    pub fn print_todo_list(&self) -> () {
         println!("=== {} ===", self.title); 
         for item in &self.todos {
             println!("{} : {}", item.title, if item.done == true {"v"} else {"x"});
         }
-        println!("{}", self.get_progress_list());
-        println!("==================="); 
+        println!("Progress: {}%", self.get_progress_list());
+        println!("================"); 
     }
 
 }
