@@ -18,14 +18,19 @@ This page will hold info on the files of the project, as well as functions, with
     program - struct with name of menu it is currently in; 
 
 
-## Functions
+## Files
 
-### TODO
+### command
+
+### todo 
+
+### main
+
+### grades
+
+### program
+
+### toold
 
 
-    
-### GRADES 
-
-
-### PROGRAM
 
