@@ -5,8 +5,10 @@ This code is for an application with three menus:
 * the record ( for keeping record of your grades as well as simulate future averages).
 <br>
 This code will be produced in RUST; <br>
+This code was produced for the purpose of practicing the Rust Language; <br>
 This code will first be created for terminal I/O -> then converted to a file output ( database only ) -> then converted to an UI using websockets & HTML / CSS. <br>
 This page will hold info on the files of the project, as well as functions, with their expected inputs and outputs, errors and goals. <br>
+This code was produced for the purpose of practicing the Rust Language. 
 
 ## Structs
     to-do list item - struct with vec of structs:to-do, title, to-do counter and dones counter;
@@ -20,7 +22,7 @@ This page will hold info on the files of the project, as well as functions, with
 
 ## Files
 
-### command
+### command.rs
     launch(program: &mut Program, specifics: Vec<&str>) -> ()
         - launches new program; 
 
@@ -54,15 +56,33 @@ This page will hold info on the files of the project, as well as functions, with
     error() -> ()
         - finds an error.
         
-### todo 
+### todo.rs
+    ToDo: 
+        add_todo(&mut self, todo: String) -> ()
+            - adds a To Do Item to a To Do List; 
+ 
+        byetodo(&mut self, todo: &str) -> ()
+            - removes a To Do Item to a To Do List; 
+ 
+        check_todo(&mut self, todo: &str) -> ()
+            - checks a To Do Item of a To Do List; 
+ 
+        get_progress_list(&self) -> f32
+            - returns the progress of a To Do List; 
+ 
+        print_todo_list(&self) -> ()
+            - prints To Do List;
+ 
+    create_todo_list(list_name: String) -> ToDoList 
+            - creates a To Do List; 
+ 
 
-### main
 
-### grades
+### grades.rs
 
-### program
+### program.rs
 
-### toold
+### tools.rs
 
-
+### main.rs
 
