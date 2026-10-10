@@ -21,7 +21,39 @@ This page will hold info on the files of the project, as well as functions, with
 ## Files
 
 ### command
+    launch(program: &mut Program, specifics: Vec<&str>) -> ()
+        - launches new program; 
 
+    quit(program: &mut Program) -> ()
+        - quits current program; 
+
+    create_father(program: &mut Program, specifics: Vec<&str>) -> ()
+        - creates a To Do List, if on Hub. If on Record, creates a Year; 
+        
+    create_son(program: &mut Program, specifics: Vec<&str>) -> ()
+        - creates a To Do Item, if on Hub. If on Record, creates a Subject Item; 
+        
+    delete_father(program: &mut Program, specifics: Vec<&str>) -> ()
+        - deletes a To Do List, if on Hub. If on Record, deletes a Year; 
+        
+    delete_son(program: &mut Program, specifics: Vec<&str>) -> ()
+        - deletes a To Do Item, if on Hub. If on Record, deletes a Subject Item; 
+        
+    display(program: &mut Program, specifics: Vec<&str>) -> ()
+        - displays a To Do List, if on Hub. If on Record, displays a Year. It also can display the Menu;
+        
+    click(program: &mut Program, specifics: Vec<&str>) -> ()
+        - checks the Done checkbox of a To Do Item, if on Hub. If on Record, checks the Simulation checkbox of a Subject Item; 
+        
+    grade(program: &mut Program, specifics: Vec<&str>) -> ()
+        - changes the Grade of a Subject Item; 
+        
+    ects(program: &mut Program, specifics: Vec<&str>) -> ()
+        - changes the ECTS of a Subject Item; 
+        
+    error() -> ()
+        - finds an error.
+        
 ### todo 
 
 ### main
