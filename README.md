@@ -62,7 +62,7 @@ This code was produced for the purpose of practicing the Rust Language.
             - adds a To Do Item to a To Do List; 
  
         byetodo(&mut self, todo: &str) -> ()
-            - removes a To Do Item to a To Do List; 
+            - removes a To Do Item from a To Do List; 
  
         check_todo(&mut self, todo: &str) -> ()
             - checks a To Do Item of a To Do List; 
@@ -76,9 +76,37 @@ This code was produced for the purpose of practicing the Rust Language.
     create_todo_list(list_name: String) -> ToDoList 
             - creates a To Do List; 
  
-
-
 ### grades.rs
+    Year: 
+        create_subject(&mut self, subject: String, credits: u8, sim: bool, grade: u8) -> ()
+            - adds a Subject Item to a Year; 
+     
+        edit_grade(&mut self, subject: String, grade: u8) -> ()
+            - edits Grade of Subject Item of a Year; 
+     
+        edit_ects(&mut self, subject: String, ects: u8) -> ()
+            - edits ECTS of Subject Item of a Year; 
+     
+        check_sim(&mut self, subject: String) -> ()
+            - (un)checks the Simulation checkbox of Subject Item of a Year; 
+     
+        byesubject(&mut self, subject: String) -> ()
+            - removes a Subject Item from a Year; 
+     
+        yearly_average(&mut self) -> f32
+            - calculates yearly average; 
+     
+        print_year(&mut self) -> ()
+            - prints Year
+     
+
+    create_year(year: String)-> Year
+        - cerates a Year; 
+     
+    total_avg(years: &[Year]) -> f32
+        - calculates total average of all Years in launched program; 
+     
+
 
 ### program.rs
 
