@@ -142,6 +142,18 @@ This code was produced for the purpose of practicing the Rust Language.
             - deletes Subject Item from Year in Program; 
 
 ### tools.rs
+    man() -> ()
+        - displays manual of studnt_hub for users; 
+
+    select(input: &String, program: &mut Program) -> ()
+        - selects input : command + specifics; 
+        
+    select_first(input: &str) -> String
+        - selects the first command in input string; 
+        
+    parse(input: &str) -> Vec<&str>
+        - parses input; 
+        
 
 ### main.rs
 
