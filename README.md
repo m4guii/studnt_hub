@@ -25,39 +25,39 @@ Student Hub is split into three main operational menus:
 
 ### Prerequisites
 Make sure you have Rust and Cargo installed on your system. If not, install them via rustup.rs:
-\`\`\`bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-\`\`\`
+```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+    ```
 
 ### Installation
 
 1. Clone the repository:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/m4guii/studnt_hub.git
-   \`\`\`
+   ```
 
 2. Navigate to the project directory:
-   \`\`\`bash
+   ```bash
    cd studnt_hub
-   \`\`\`
+   ```
 
 ### Running the Application
 
 To build and launch Student Hub directly:
-\`\`\`bash
+```bash
 cargo run
-\`\`\`
+```
 
 To compile without running:
-\`\`\`bash
+```bash
 cargo build
-\`\`\`
+```
 
 ---
 
 ## Project Structure
 
-\`\`\`text
+```text
 studnt_hub/
 ├── src/
 │   ├── main.rs       # Application entry point
@@ -69,7 +69,7 @@ studnt_hub/
 ├── Cargo.toml        # Project configuration and dependencies
 ├── Cargo.lock        # Locked dependency versions
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -163,8 +163,3 @@ Suggestions, bug reports, and contributions are welcome!
 ## Notes
 
 * Built as a personal project to practice Rust concepts.
-EOF
-
-git add README.md
-git commit -m "docs: add comprehensive README.md"
-git push
