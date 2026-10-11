@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # STUDENT HUB
 
 Student Hub is a terminal-based productivity application built with Rust. It provides a centralized space to manage study timetables, stay focused with a Pomodoro timer, and track academic progress—including real-time grade average calculations and grade simulation features.
