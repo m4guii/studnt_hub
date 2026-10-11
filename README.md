@@ -154,6 +154,6 @@ This code was produced for the purpose of practicing the Rust Language.
     parse(input: &str) -> Vec<&str>
         - parses input; 
         
-
 ### main.rs
-
+    main() 
+        - runs studnt_hub <3
