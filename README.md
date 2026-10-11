@@ -1,37 +1,68 @@
-# ==== STUDENT HUB ====
-This code is for an application with three menus: 
-* the hub ( for timetables + to-dos );
-* the timer ( with pomodoro timer );
-* the record ( for keeping record of your grades as well as simulate future averages).
-<br>
+cat << 'EOF' > README.md
+# STUDENT HUB
+
+Student Hub is a terminal-based productivity application built with Rust. It provides a centralized space to manage study timetables, stay focused with a Pomodoro timer, and track academic progress—including real-time grade average calculations and grade simulation features.
+
+---
+
+## Overview & Features
+
+Student Hub is split into three main operational menus:
+
+* **The Hub**: Manage your timetables, task lists, and daily to-dos.
+* **The Timer**: Integrated Pomodoro timer to help manage focused work sessions.
+* **The Record**: Store academic grades and ECTS credits, calculate overall averages, and run grade simulations for future terms.
+
+---
 
 ## Built With
-* Rust
-* Cargo (included with a standard Rust installation)
 
-## How To Use
+* **Rust** - Systems programming language providing speed and safety.
+* **Cargo** - Rust's standard build tool and package manager.
+
+---
+
+## Getting Started
+
+### Prerequisites
+Make sure you have Rust and Cargo installed on your system. If not, install them via rustup.rs:
+\`\`\`bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+\`\`\`
 
 ### Installation
-Clone the repository and navigate to the project directory:
-    git clone https://github.com/m4guii/studnt_hub.git
-    cd studnt_hub
+
+1. Clone the repository:
+   \`\`\`bash
+   git clone https://github.com/m4guii/studnt_hub.git
+   \`\`\`
+
+2. Navigate to the project directory:
+   \`\`\`bash
+   cd studnt_hub
+   \`\`\`
 
 ### Running the Application
-Run the application using Cargo:
-    cargo run
 
-To compile the application without running it:
-    cargo build
+To build and launch Student Hub directly:
+\`\`\`bash
+cargo run
+\`\`\`
 
-## Contributing
-Suggestions, bug reports, and contributions are welcome! <br>
-Feel free to open an issue to report a bug, suggest a feature, or discuss a possible improvement. <br>
+To compile without running:
+\`\`\`bash
+cargo build
+\`\`\`
 
-## Structure 
+---
+
+## Project Structure
+
+\`\`\`text
 studnt_hub/
 ├── src/
 │   ├── main.rs       # Application entry point
-│   ├── command.rs    # Command handling
+│   ├── command.rs    # Command handling and dispatching
 │   ├── program.rs    # Application state and navigation
 │   ├── todo.rs       # Task and to-do list logic
 │   ├── grades.rs     # Academic records and averages
@@ -39,154 +70,102 @@ studnt_hub/
 ├── Cargo.toml        # Project configuration and dependencies
 ├── Cargo.lock        # Locked dependency versions
 └── README.md
+\`\`\`
 
-## Structs
-    to-do list item - struct with vec of structs:to-do, title, to-do counter and dones counter;
-    to-do items - struct with name, done/not done;
+---
 
-    subject item - struct with name, ects, s/t and grade;
-    year item - struct with name, vec of structs:subjects, average;
+## Structs & Data Architecture
 
-    program - struct with name of menu it is currently in; 
+| Struct Name | Type | Description |
+| :--- | :--- | :--- |
+| **To-Do List** | Father | Container with list title, total item counter, completed counter, and a vector of To-Do Items. |
+| **To-Do Item** | Son | Task element containing the item name and completion status (done / not done). |
+| **Subject Item** | Son | Subject record containing the name, ECTS credits, S/T ratio, and grade. |
+| **Year Item** | Father | Academic year container with year name, vector of Subject Items, and overall yearly average. |
+| **Program** | Core State | Central program state containing navigation data and the active menu. |
 
-## Files
+---
+
+## API / Module Reference
 
 ### command.rs
-    launch(program: &mut Program, specifics: Vec<&str>) -> ()
-        - launches new program; 
+* launch(program: &mut Program, specifics: Vec<&str>) — Launches a new program view.
+* quit(program: &mut Program) — Quits the current program context.
+* create_father(program: &mut Program, specifics: Vec<&str>) — Creates a To-Do List (on Hub) or a Year (on Record).
+* create_son(program: &mut Program, specifics: Vec<&str>) — Creates a To-Do Item (on Hub) or a Subject Item (on Record).
+* delete_father(program: &mut Program, specifics: Vec<&str>) — Removes a To-Do List or Year.
+* delete_son(program: &mut Program, specifics: Vec<&str>) — Removes a To-Do Item or Subject Item.
+* display(program: &mut Program, specifics: Vec<&str>) — Displays list/year details or main menu navigation.
+* click(program: &mut Program, specifics: Vec<&str>) — Toggles task completion (on Hub) or subject simulation status (on Record).
+* grade(program: &mut Program, specifics: Vec<&str>) — Updates the grade of a Subject Item.
+* ects(program: &mut Program, specifics: Vec<&str>) — Updates ECTS credits for a Subject Item.
+* error() — Dispatches standard error handling.
 
-    quit(program: &mut Program) -> ()
-        - quits current program; 
-
-    create_father(program: &mut Program, specifics: Vec<&str>) -> ()
-        - creates a To Do List, if on Hub. If on Record, creates a Year; 
-        
-    create_son(program: &mut Program, specifics: Vec<&str>) -> ()
-        - creates a To Do Item, if on Hub. If on Record, creates a Subject Item; 
-        
-    delete_father(program: &mut Program, specifics: Vec<&str>) -> ()
-        - deletes a To Do List, if on Hub. If on Record, deletes a Year; 
-        
-    delete_son(program: &mut Program, specifics: Vec<&str>) -> ()
-        - deletes a To Do Item, if on Hub. If on Record, deletes a Subject Item; 
-        
-    display(program: &mut Program, specifics: Vec<&str>) -> ()
-        - displays a To Do List, if on Hub. If on Record, displays a Year. It also can display the Menu;
-        
-    click(program: &mut Program, specifics: Vec<&str>) -> ()
-        - checks the Done checkbox of a To Do Item, if on Hub. If on Record, checks the Simulation checkbox of a Subject Item; 
-        
-    grade(program: &mut Program, specifics: Vec<&str>) -> ()
-        - changes the Grade of a Subject Item; 
-        
-    ects(program: &mut Program, specifics: Vec<&str>) -> ()
-        - changes the ECTS of a Subject Item; 
-        
-    error() -> ()
-        - finds an error.
-        
 ### todo.rs
-    ToDo: 
-        add_todo(&mut self, todo: String) -> ()
-            - adds a To Do Item to a To Do List; 
- 
-        byetodo(&mut self, todo: &str) -> ()
-            - removes a To Do Item from a To Do List; 
- 
-        check_todo(&mut self, todo: &str) -> ()
-            - checks a To Do Item of a To Do List; 
- 
-        get_progress_list(&self) -> f32
-            - returns the progress of a To Do List; 
- 
-        print_todo_list(&self) -> ()
-            - prints To Do List;
- 
-    create_todo_list(list_name: String) -> ToDoList 
-            - creates a To Do List; 
- 
-### grades.rs
-    Year: 
-        create_subject(&mut self, subject: String, credits: u8, sim: bool, grade: u8) -> ()
-            - adds a Subject Item to a Year; 
-     
-        edit_grade(&mut self, subject: String, grade: u8) -> ()
-            - edits Grade of Subject Item of a Year; 
-     
-        edit_ects(&mut self, subject: String, ects: u8) -> ()
-            - edits ECTS of Subject Item of a Year; 
-     
-        check_sim(&mut self, subject: String) -> ()
-            - (un)checks the Simulation checkbox of Subject Item of a Year; 
-     
-        byesubject(&mut self, subject: String) -> ()
-            - removes a Subject Item from a Year; 
-     
-        yearly_average(&mut self) -> f32
-            - calculates yearly average; 
-     
-        print_year(&mut self) -> ()
-            - prints Year
-     
+* ToDo Methods:
+  * add_todo(&mut self, todo: String) — Appends a new item to a list.
+  * byetodo(&mut self, todo: &str) — Removes an item from a list.
+  * check_todo(&mut self, todo: &str) — Toggles task completion status.
+  * get_progress_list(&self) -> f32 — Returns percentage completion rate.
+  * print_todo_list(&self) — Renders the task list to stdout.
+* create_todo_list(list_name: String) -> ToDoList — Factory function to instantiate a list.
 
-    create_year(year: String)-> Year
-        - cerates a Year; 
-     
-    total_avg(years: &[Year]) -> f32
-        - calculates total average of all Years in launched program; 
+### grades.rs
+* Year Methods:
+  * create_subject(&mut self, subject: String, credits: u8, sim: bool, grade: u8) — Adds a subject record.
+  * edit_grade(&mut self, subject: String, grade: u8) — Edits course grade.
+  * edit_ects(&mut self, subject: String, ects: u8) — Edits course ECTS credits.
+  * check_sim(&mut self, subject: String) — Toggles simulation status for grade calculation.
+  * byesubject(&mut self, subject: String) — Deletes a subject record.
+  * yearly_average(&mut self) -> f32 — Computes weighted yearly average.
+  * print_year(&mut self) — Renders year data to stdout.
+* create_year(year: String) -> Year — Instantiates a new year record.
+* total_avg(years: &[Year]) -> f32 — Computes global GPA across all active years.
 
 ### program.rs
-    Program: 
-        choose_menu(&mut self, choice: String) -> ()
-            - chooses menu (Hub / Record); 
-
-        show_menu(&mut self) -> ()
-            - displays menu; 
-            
-        end(self) -> ()
-            - ends program; 
-            
-        find_todo_list(&mut self, list_name: String) -> Option<&mut ToDoList>
-            - finds To Do List in Program; 
-            
-        find_year(&mut self, year_name: String) -> Option<&mut Year>
-            - finds Year in Program; 
-            
-        create_todo_list(&mut self, todolist: String) -> ()
-            - creates To Do List in Program; 
-            
-        create_year(&mut self, year: String) -> ()
-            - creates Year in Program; 
-            
-        delete_year(&mut self, year: String)-> ()
-            - deletes Year in Program; 
-            
-        delete_todo_list(&mut self, todolist: String) -> ()
-            - deletes To Do List in Program; 
-            
-        delete_todo(&mut self, todolist: String, todo: String) -> ()
-            - deletes To Do Item from To Do List in Program; 
-            
-        delete_subject(&mut self, year: String, subject: String) -> ()
-            - deletes Subject Item from Year in Program; 
+* choose_menu(&mut self, choice: String) — Switches active menu context.
+* show_menu(&mut self) — Displays active menu interface.
+* end(self) — Safely terminates program state.
+* find_todo_list(&mut self, list_name: String) -> Option<&mut ToDoList> — Searches for list by name.
+* find_year(&mut self, year_name: String) -> Option<&mut Year> — Searches for academic year by name.
+* Entity management helper functions: create_todo_list, create_year, delete_year, delete_todo_list, delete_todo, delete_subject.
 
 ### tools.rs
-    man() -> ()
-        - displays manual of studnt_hub for users; 
+* man() — Prints command manual to stdout.
+* select(input: &String, program: &mut Program) — Parses input line and invokes corresponding commands.
+* select_first(input: &str) -> String — Extracts primary command token.
+* parse(input: &str) -> Vec<&str> — Splits command argument string.
 
-    select(input: &String, program: &mut Program) -> ()
-        - selects input : command + specifics; 
-        
-    select_first(input: &str) -> String
-        - selects the first command in input string; 
-        
-    parse(input: &str) -> Vec<&str>
-        - parses input; 
-        
 ### main.rs
-    main() 
-        - runs studnt_hub <3
+* main() — Program initialization and application loop execution.
 
-### Final Notes 
-This code will first be created for terminal I/O -> then converted to a file output ( database only ) -> then converted to an UI using websockets & HTML / CSS. <br>
-This code was produced for the purpose of practicing the Rust Language. 
+---
+
+## Roadmap
+
+1. Phase 1 (Current): Terminal I/O interface.
+2. Phase 2: File persistence & database output integration.
+3. Phase 3: Full GUI interface using WebSockets, HTML, and CSS.
+
+---
+
+## Contributing
+
+Suggestions, bug reports, and contributions are welcome!
+
+1. Fork the Project
+2. Create your Feature Branch (\`git checkout -b feature/NewFeature\`)
+3. Commit your Changes (\`git commit -m 'Add NewFeature'\`)
+4. Push to the Branch (\`git push origin feature/NewFeature\`)
+5. Open a Pull Request
+
+---
+
+## Notes
+
+* Built as a personal project to practice Rust concepts.
+EOF
+
+git add README.md
+git commit -m "docs: add comprehensive README.md"
+git push
