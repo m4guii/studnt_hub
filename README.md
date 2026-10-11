@@ -27,14 +27,15 @@ Student Hub is split into three main operational menus:
 Make sure you have Rust and Cargo installed on your system. If not, install them via rustup.rs:
 ```bash
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
-    ```
+```
 
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/m4guii/studnt_hub.git
-   ```
+
+    ```bash
+    git clone https://github.com/m4guii/studnt_hub.git
+    ```
 
 2. Navigate to the project directory:
    ```bash
