@@ -105,10 +105,41 @@ This code was produced for the purpose of practicing the Rust Language.
      
     total_avg(years: &[Year]) -> f32
         - calculates total average of all Years in launched program; 
-     
-
 
 ### program.rs
+    Program: 
+        choose_menu(&mut self, choice: String) -> ()
+            - chooses menu (Hub / Record); 
+
+        show_menu(&mut self) -> ()
+            - displays menu; 
+            
+        end(self) -> ()
+            - ends program; 
+            
+        find_todo_list(&mut self, list_name: String) -> Option<&mut ToDoList>
+            - finds To Do List in Program; 
+            
+        find_year(&mut self, year_name: String) -> Option<&mut Year>
+            - finds Year in Program; 
+            
+        create_todo_list(&mut self, todolist: String) -> ()
+            - creates To Do List in Program; 
+            
+        create_year(&mut self, year: String) -> ()
+            - creates Year in Program; 
+            
+        delete_year(&mut self, year: String)-> ()
+            - deletes Year in Program; 
+            
+        delete_todo_list(&mut self, todolist: String) -> ()
+            - deletes To Do List in Program; 
+            
+        delete_todo(&mut self, todolist: String, todo: String) -> ()
+            - deletes To Do Item from To Do List in Program; 
+            
+        delete_subject(&mut self, year: String, subject: String) -> ()
+            - deletes Subject Item from Year in Program; 
 
 ### tools.rs
 
