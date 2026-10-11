@@ -4,11 +4,41 @@ This code is for an application with three menus:
 * the timer ( with pomodoro timer );
 * the record ( for keeping record of your grades as well as simulate future averages).
 <br>
-This code will be produced in RUST; <br>
-This code was produced for the purpose of practicing the Rust Language; <br>
-This code will first be created for terminal I/O -> then converted to a file output ( database only ) -> then converted to an UI using websockets & HTML / CSS. <br>
-This page will hold info on the files of the project, as well as functions, with their expected inputs and outputs, errors and goals. <br>
-This code was produced for the purpose of practicing the Rust Language. 
+
+## Built With
+* Rust
+* Cargo (included with a standard Rust installation)
+
+## How To Use
+
+### Installation
+Clone the repository and navigate to the project directory:
+    git clone https://github.com/m4guii/studnt_hub.git
+    cd studnt_hub
+
+### Running the Application
+Run the application using Cargo:
+    cargo run
+
+To compile the application without running it:
+    cargo build
+
+## Contributing
+Suggestions, bug reports, and contributions are welcome! <br>
+Feel free to open an issue to report a bug, suggest a feature, or discuss a possible improvement. <br>
+
+## Structure 
+studnt_hub/
+├── src/
+│   ├── main.rs       # Application entry point
+│   ├── command.rs    # Command handling
+│   ├── program.rs    # Application state and navigation
+│   ├── todo.rs       # Task and to-do list logic
+│   ├── grades.rs     # Academic records and averages
+│   └── tools.rs      # Input parsing and utility functions
+├── Cargo.toml        # Project configuration and dependencies
+├── Cargo.lock        # Locked dependency versions
+└── README.md
 
 ## Structs
     to-do list item - struct with vec of structs:to-do, title, to-do counter and dones counter;
@@ -18,7 +48,6 @@ This code was produced for the purpose of practicing the Rust Language.
     year item - struct with name, vec of structs:subjects, average;
 
     program - struct with name of menu it is currently in; 
-
 
 ## Files
 
@@ -157,3 +186,7 @@ This code was produced for the purpose of practicing the Rust Language.
 ### main.rs
     main() 
         - runs studnt_hub <3
+
+### Final Notes 
+This code will first be created for terminal I/O -> then converted to a file output ( database only ) -> then converted to an UI using websockets & HTML / CSS. <br>
+This code was produced for the purpose of practicing the Rust Language. 
