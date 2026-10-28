@@ -9,7 +9,7 @@ Student Hub is a terminal-based productivity application built with Rust. It pro
 Student Hub is split into three main operational menus:
 
 * **The Hub**: Manage your timetables, task lists, and daily to-dos.
-* **The Timer**: Integrated Pomodoro timer to help manage focused work sessions.
+* **The Timer**: Integrated Pomodoro timer to help manage focused work sessions. (TBD)
 * **The Record**: Store academic grades and ECTS credits, calculate overall averages, and run grade simulations for future terms.
 
 ---
@@ -143,9 +143,9 @@ studnt_hub/
 
 ## Roadmap
 
-1. Phase 1 (Current): Terminal I/O interface.
-2. Phase 2: File persistence & database output integration.
-3. Phase 3: Full GUI interface using WebSockets, HTML, and CSS.
+1. Phase 1 (Current): Terminal I/O interface. (DONE)
+2. Phase 2: File persistence & database output integration. (TBD)
+3. Phase 3: Full GUI interface using WebSockets, HTML, and CSS. (TBD)
 
 ---
 
